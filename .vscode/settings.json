@@ -1,0 +1,10 @@
+{
+  "dart.flutterSdkPath": ".fvm/versions/stable",
+  "cSpell.ignorePaths": [
+    "**/node_modules/**",
+    "**/build/**",
+    "**/.vscode/**",
+    "fvm/**",
+    "**/fvm/**"
+  ]
+}
