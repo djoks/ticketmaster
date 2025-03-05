@@ -1,4 +1,4 @@
-# kaiteki
+# TicketMaster
 
 A new Flutter project.
 
@@ -9,26 +9,28 @@ This guide walks you through getting the project up and running on Windows or ma
 1. [Cloning the Repository](#1-cloning-the-repository)
 2. [Installing Flutter](#2-installing-flutter)
 3. [Setting Up FVM](#3-setting-up-fvm)
-4. [Configuring the Project (Git Hooks & Environment)](#4-configuring-the-project-git-hooks--environment)
-5. [Installing Dependencies](#5-installing-dependencies)
-6. [Running the Application](#6-running-the-application)
-7. [Directory Structure](#7-directory-structure)
-8. [Testing & Code Generation](#8-directory-structure)
-9. [Questions or Issues?](#9-questions-or-issues)
+4. [Installing Dependencies](#5-installing-dependencies)
+5. [Running the Application](#6-running-the-application)
+6. [Directory Structure](#7-directory-structure)
+7. [Testing & Code Generation](#8-directory-structure)
+8. [Questions or Issues?](#9-questions-or-issues)
 
 ## 1. Cloning the Repository
 
 By default, `main` is considered the stable branch, while `develop` is the active development branch. **Feature** or **hotfix** branches are created as needed and deleted once merged.
 
 - To check out the develop branch directly:
+
   ```bash
-  git clone -b develop https://github.com/justinkaiteki/kaiteki_flutter_app.git
-  cd kaiteki_flutter_app
+  git clone -b develop https://github.com/djoks/ticketmaster.git
+  cd ticketmaster
   ```
+
 - Or simply clone the repo and then switch branches:
+  
   ```bash
-  git clone https://github.com/justinkaiteki/kaiteki_flutter_app.git
-  cd kaiteki_flutter_app
+  git clone https://github.com/djoks/ticketmaster.git
+  cd ticketmaster
   git checkout develop
   ```
 
@@ -139,33 +141,13 @@ Note: `stable` can be replaced with the exact flutter version you would like to 
 
 ## 4. Configuring the Project
 
-Running, `./install.sh`, automatically sets up Git hooks and copies `.env.example` to `.env` (if missing). This is recommended on MacOS, Linux, or Windows with Git Bash/WSL.
-
-### Option A: Run install.sh (macOS/Linux/Git Bash/WSL)
-
-```bash
-./install.sh
-```
-
-#### What it does:
-
-- Copies `.env.example` to `.env` if `.env` isn’t found.
-- Installs Git hooks by copying from `.githooks/` to `.git/hooks/`, and makes them executable on macOS/Linux.
-
-### Option B: Manual Setup (Windows Command Prompt/PowerShell)
-
 1. Copy `.env.example` to `.env`:
 
    ```bash
    copy .env.example .env
    ```
 
-2. Install Git hooks by copying from `.githooks/` to `.git/hooks/`:
-
-   ```bash
-   copy .githooks\pre-commit .git\hooks\pre-commit
-   copy .githooks\pre-push .git\hooks\pre-push
-   ```
+2. TODO: Get API KEY
 
 ## 5. Installing Dependencies
 
@@ -290,7 +272,7 @@ If you need mock classes for testing (e.g., mocking services, repositories, view
 
 ```dart
 import 'package:mockito/annotations.dart';
-import 'package:kaiteki/ui/views/home_view_model.dart';
+import 'package:ticketmaster/ui/views/home_view_model.dart';
 
 @GenerateNiceMocks([MockSpec<HomeViewModel>()])
 void main() {
