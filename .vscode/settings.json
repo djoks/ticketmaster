@@ -1,5 +1,15 @@
 {
   "dart.flutterSdkPath": ".fvm/versions/stable",
+  "search.exclude": {
+    "**/.fvm": true
+  },
+  "files.watcherExclude": {
+    "**/.fvm": true
+  },
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.formatOnSave": true
+  },
   "cSpell.ignorePaths": [
     "**/node_modules/**",
     "**/build/**",

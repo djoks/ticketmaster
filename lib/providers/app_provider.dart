@@ -1,4 +1,3 @@
 import 'package:flutter/material.dart';
 
-class AppProvider extends ChangeNotifier {
-}
+class AppProvider extends ChangeNotifier {}

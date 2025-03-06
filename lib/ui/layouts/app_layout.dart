@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:ticketmaster/ui/widgets/theme_toggle.dart';
 
 class AppLayout extends StatelessWidget {
   final Widget child;
@@ -8,7 +9,7 @@ class AppLayout extends StatelessWidget {
   final bool showBackButton;
 
   const AppLayout({
-    super.key,   
+    super.key,
     required this.child,
     this.title,
     this.floatingActionButton,
@@ -18,10 +19,11 @@ class AppLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(tr('home.title')),
-        ),
-        body: Container(child: child),
-      );
+      appBar: AppBar(
+        title: Text(tr('home.title')),
+        actions: [ThemeToggle()],
+      ),
+      body: Container(child: child),
+    );
   }
 }

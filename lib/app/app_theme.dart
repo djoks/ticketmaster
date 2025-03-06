@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ticketmaster/ui/common/app_colors.dart';
 
+/// Provides the theme configurations for the application, including both
+/// light and dark themes.
 class AppTheme {
-  // Light theme configuration
+  /// The theme used when the app is in light mode.
+  ///
+  /// This theme uses a light background with dark text and icons. It configures
+  /// styles for the app bar, bottom navigation bar, text, inputs, cards, and
+  /// color scheme.
   final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: AppColors.primary,
@@ -10,50 +16,78 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      iconTheme: IconThemeData(
-        color: AppColors.textPrimaryLight,
-      ),
+      iconTheme: const IconThemeData(color: Colors.black),
       titleTextStyle: const TextStyle(
-        color: AppColors.textPrimaryLight,
+        color: Colors.black,
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
     ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.secondaryLight,
       selectedItemColor: AppColors.primary,
       unselectedItemColor: AppColors.textSecondaryLight,
     ),
     textTheme: const TextTheme(
-      displayLarge: TextStyle(color: AppColors.textPrimaryLight),
-      displayMedium: TextStyle(color: AppColors.textPrimaryLight),
-      displaySmall: TextStyle(color: AppColors.textPrimaryLight),
-      headlineLarge: TextStyle(color: AppColors.textPrimaryLight),
-      headlineMedium: TextStyle(color: AppColors.textPrimaryLight),
-      headlineSmall: TextStyle(color: AppColors.textPrimaryLight),
-      titleLarge: TextStyle(color: AppColors.textPrimaryLight),
-      titleMedium: TextStyle(color: AppColors.textPrimaryLight),
-      titleSmall: TextStyle(color: AppColors.textPrimaryLight),
-      bodyLarge: TextStyle(color: AppColors.textSecondaryLight),
-      bodyMedium: TextStyle(color: AppColors.textSecondaryLight),
-      bodySmall: TextStyle(color: AppColors.textSecondaryLight),
-      labelLarge: TextStyle(color: AppColors.textPrimaryLight),
-      labelMedium: TextStyle(color: AppColors.textSecondaryLight),
-      labelSmall: TextStyle(color: AppColors.textSecondaryLight),
+      displayLarge: TextStyle(color: Colors.black87),
+      displayMedium: TextStyle(color: Colors.black87),
+      displaySmall: TextStyle(color: Colors.black87),
+      headlineLarge: TextStyle(color: Colors.black87),
+      headlineMedium: TextStyle(color: Colors.black87),
+      headlineSmall: TextStyle(color: Colors.black87),
+      titleLarge: TextStyle(color: Colors.black87),
+      titleMedium: TextStyle(color: Colors.black87),
+      titleSmall: TextStyle(color: Colors.black87),
+      bodyLarge: TextStyle(color: Colors.black87),
+      bodyMedium: TextStyle(color: Colors.black87),
+      bodySmall: TextStyle(color: Colors.black87),
+      labelLarge: TextStyle(color: Colors.black87),
+      labelMedium: TextStyle(color: Colors.black87),
+      labelSmall: TextStyle(color: Colors.black87),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: const EdgeInsets.all(20),
+      filled: true,
+      fillColor: AppColors.backgroundLight,
+      hintStyle: const TextStyle(color: Colors.black87),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: Colors.grey.shade300),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: AppColors.primary, width: 2),
+      ),
+    ),
+    cardTheme: CardTheme(
+      color: Colors.grey.shade100,
+      elevation: 0,
+      margin: const EdgeInsets.all(8),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+        side: BorderSide(color: Colors.grey.shade300),
+      ),
     ),
     colorScheme: ColorScheme.light(
       primary: AppColors.primary,
       secondary: AppColors.accent,
       surface: AppColors.backgroundLight,
-      onPrimary: AppColors.textPrimaryLight,
-      onSecondary: AppColors.textPrimaryLight,
-      onSurface: AppColors.textPrimaryLight,
+      onPrimary: Colors.black,
+      onSecondary: Colors.black,
+      onSurface: Colors.black87,
       error: Colors.red,
-      onError: AppColors.textPrimaryLight,
+      onError: Colors.black,
     ),
   );
 
-  // Dark theme configuration
+  /// The theme used when the app is in dark mode.
+  ///
+  /// This theme uses a dark background with light text and icons. It configures
+  /// styles for the app bar, bottom navigation bar, text, inputs, cards, and
+  /// color scheme.
   final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     primaryColor: AppColors.primary,
@@ -61,46 +95,70 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
       elevation: 0,
-      iconTheme: IconThemeData(
-        color: AppColors.textPrimaryDark,
-      ),
+      iconTheme: const IconThemeData(color: Colors.white),
       titleTextStyle: const TextStyle(
-        color: AppColors.textPrimaryDark,
+        color: Colors.white,
         fontSize: 20,
         fontWeight: FontWeight.bold,
       ),
     ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: AppColors.secondaryDark,
       selectedItemColor: AppColors.primary,
       unselectedItemColor: AppColors.textSecondaryDark,
     ),
     textTheme: const TextTheme(
-      displayLarge: TextStyle(color: AppColors.textPrimaryDark),
-      displayMedium: TextStyle(color: AppColors.textPrimaryDark),
-      displaySmall: TextStyle(color: AppColors.textPrimaryDark),
-      headlineLarge: TextStyle(color: AppColors.textPrimaryDark),
-      headlineMedium: TextStyle(color: AppColors.textPrimaryDark),
-      headlineSmall: TextStyle(color: AppColors.textPrimaryDark),
-      titleLarge: TextStyle(color: AppColors.textPrimaryDark),
-      titleMedium: TextStyle(color: AppColors.textPrimaryDark),
-      titleSmall: TextStyle(color: AppColors.textPrimaryDark),
-      bodyLarge: TextStyle(color: AppColors.textSecondaryDark),
-      bodyMedium: TextStyle(color: AppColors.textSecondaryDark),
-      bodySmall: TextStyle(color: AppColors.textSecondaryDark),
-      labelLarge: TextStyle(color: AppColors.textPrimaryDark),
-      labelMedium: TextStyle(color: AppColors.textSecondaryDark),
-      labelSmall: TextStyle(color: AppColors.textSecondaryDark),
+      displayLarge: TextStyle(color: Colors.white70),
+      displayMedium: TextStyle(color: Colors.white70),
+      displaySmall: TextStyle(color: Colors.white70),
+      headlineLarge: TextStyle(color: Colors.white70),
+      headlineMedium: TextStyle(color: Colors.white70),
+      headlineSmall: TextStyle(color: Colors.white70),
+      titleLarge: TextStyle(color: Colors.white70),
+      titleMedium: TextStyle(color: Colors.white70),
+      titleSmall: TextStyle(color: Colors.white70),
+      bodyLarge: TextStyle(color: Colors.white70),
+      bodyMedium: TextStyle(color: Colors.white70),
+      bodySmall: TextStyle(color: Colors.white70),
+      labelLarge: TextStyle(color: Colors.white70),
+      labelMedium: TextStyle(color: Colors.white70),
+      labelSmall: TextStyle(color: Colors.white70),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: const EdgeInsets.all(20),
+      filled: true,
+      fillColor: AppColors.backgroundDark,
+      hintStyle: const TextStyle(color: Colors.white70),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: Colors.grey.shade700),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+        borderSide: BorderSide(color: AppColors.primary, width: 2),
+      ),
+    ),
+    cardTheme: CardTheme(
+      color: Colors.grey.shade800,
+      elevation: 0,
+      margin: const EdgeInsets.all(8),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+        side: BorderSide(color: Colors.grey.shade700),
+      ),
     ),
     colorScheme: ColorScheme.dark(
       primary: AppColors.primary,
       secondary: AppColors.accent,
       surface: AppColors.backgroundDark,
-      onPrimary: AppColors.textPrimaryDark,
-      onSecondary: AppColors.textPrimaryDark,
-      onSurface: AppColors.textPrimaryDark,
+      onPrimary: Colors.white,
+      onSecondary: Colors.white,
+      onSurface: Colors.white70,
       error: Colors.red,
-      onError: AppColors.textPrimaryDark,
+      onError: Colors.white,
     ),
   );
 }
