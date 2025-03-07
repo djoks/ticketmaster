@@ -14,7 +14,9 @@ This guide walks you through getting the project up and running on Windows or ma
 6. [Directory Structure](#6-directory-structure)
 7. [Testing And Code Generation](#7-testing-and-code-generation)
 8. [Questions or Issues?](#8-questions-or-issues)
-9. [Video Demo](#9-video-demo)
+9. [How To Test](#9-how-to-test)
+10. [Video Demo](#10-video-demo)
+11. [Architectural Overview](#11-architectural-overview)
 
 ## 1. Cloning the Repository
 
@@ -312,7 +314,33 @@ If you run into problems or need more details:
 1. Check the official [Flutter documentation](https://docs.flutter.dev/).
 2. Contact [Philip.](contact.djoks@gmail.com).
 
-## 9. Video Demo
+## 9. How To Test
+
+1. **Launch the App:** Open the application on your device.
+2. **Load Events:** Wait for the event list to load.
+3. **Test Pagination:** Scroll down to the bottom of the list to trigger infinite scrolling. A circular progress indicator should appear while new events load.
+4. **Filter Results:** Enter keywords in the search field. The event list should update in real time based on your input.
+5. **View Event Details:** Tap on an event to navigate to its details screen, where a higher-resolution image and additional information about the event will be displayed.
+6. **Purchase Tickets:** Tap on the “Buy Tickets” button to open your default browser and navigate to the TicketMaster website for ticket purchasing.
+
+## 10. Video Demo
 
 https://github.com/user-attachments/assets/5d1f911d-a3f2-4d76-af9b-5bd8e63e3e9d
 
+## 11. Architectural Overview
+
+The project is structured with a clean, modular approach to ensure maintainability and scalability. Key elements include:
+
+- **Service & Repository Pattern**
+  - **Services:** Handle network requests and other external communications.
+  - **Repositories:** Manage data transformations and provide a clear interface for data access.
+
+- **Provider & MVVM Architecture**
+  - The app follows the MVVM (Model-View-ViewModel) pattern, where each screen has a dedicated ViewModel that contains the business logic.
+  - The Provider package is used for state management, linking the UI with the underlying logic seamlessly.
+
+- **Dependency Injection**
+  - **get_it** is utilized for service location, simplifying dependency management throughout the codebase.
+
+- **Testing**
+  - **Mockito** is employed to create mock objects, making unit and widget tests more straightforward and reliable.
