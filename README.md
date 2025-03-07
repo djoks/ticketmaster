@@ -147,7 +147,13 @@ Note: `stable` can be replaced with the exact flutter version you would like to 
    copy .env.example .env
    ```
 
-2. TODO: Get API KEY
+2. Get Ticketmaster API Key:
+    1. Go to [https://developer-acct.ticketmaster.com/user/login](https://developer-acct.ticketmaster.com/user/login).
+    2. Click on "Create an Account" or "Login" if you already have one.
+    3. Click on "My Apps" on the main menu.
+    4. Select your app to expand and view details (or create one if none exist.)
+    5. Copy the "Consumer Key" and paste it in your .env file as your "API_KEY".
+
 
 ## 5. Installing Dependencies
 
