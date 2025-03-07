@@ -10,10 +10,11 @@ This guide walks you through getting the project up and running on Windows or ma
 2. [Installing Flutter](#2-installing-flutter)
 3. [Setting Up FVM](#3-setting-up-fvm)
 4. [Installing Dependencies](#5-installing-dependencies)
-5. [Running the Application](#6-running-the-application)
-6. [Directory Structure](#7-directory-structure)
-7. [Testing & Code Generation](#8-directory-structure)
-8. [Questions or Issues?](#9-questions-or-issues)
+5. [Running the Application](#5-running-the-application)
+6. [Directory Structure](#6-directory-structure)
+7. [Testing And Code Generation](#7-testing-and-code-generation)
+8. [Questions or Issues?](#8-questions-or-issues)
+9. [Video Demo](#9-video-demo)
 
 ## 1. Cloning the Repository
 
@@ -163,7 +164,7 @@ In the project root, install the required packages:
 fvm flutter pub get
 ```
 
-## 6. Running the Application
+## 5. Running the Application
 
 To run on a specific device or platform:
 
@@ -186,7 +187,7 @@ or with **VS Code**:
 - `launch.json` is configured to load `.env` automatically.
 - Select a device at the bottom of VS Code, go to “Run” in the toolbar, and choose “Start Debugging.”
 
-## 7. Directory Structure
+## 6. Directory Structure
 
 Here’s a simplified view of the folder layout (omitting untracked or auto-generated folders):
 
@@ -256,7 +257,7 @@ Here’s a simplified view of the folder layout (omitting untracked or auto-gene
 
 - Hot Reload and Restart: Use `r` in your terminal or your IDE’s features during development for faster iterations.
 
-## 8. Testing & Code Generation
+## 7. Testing And Code Generation
 
 ### Running Tests
 
@@ -304,9 +305,14 @@ void main() {
 
 This approach automatically creates mock classes for you, eliminating the need to manually override noSuchMethod. You can read more about [Mockito](https://pub.dev/packages/mockito) and [Flutter tests](https://docs.flutter.dev/testing/overview).
 
-## 9. Questions or Issues?
+## 8. Questions or Issues?
 
 If you run into problems or need more details:
 
 1. Check the official [Flutter documentation](https://docs.flutter.dev/).
 2. Contact [Philip.](contact.djoks@gmail.com).
+
+## 9. Video Demo
+
+https://github.com/user-attachments/assets/5d1f911d-a3f2-4d76-af9b-5bd8e63e3e9d
+
