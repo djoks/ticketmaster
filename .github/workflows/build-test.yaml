@@ -1,0 +1,50 @@
+name: Flutter Test (Android & iOS)
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+
+jobs:
+  test-android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version-file: pubspec.yaml
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Run Flutter Tests
+        run: flutter test
+
+      - name: Build APK (Debug)
+        run: flutter build apk --debug
+
+  test-ios:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version-file: pubspec.yaml
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      - name: Run Flutter Tests
+        run: flutter test
+
+      - name: Build iOS App (Debug, no codesign)
+        run: flutter build ios --simulator --no-codesign --debug

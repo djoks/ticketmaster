@@ -49,3 +49,7 @@ app.*.map.json
 
 # Environment configuration
 .env
+
+# Act configuration
+/act.secrets
+/act.vars
