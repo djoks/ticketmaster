@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ticketmaster/models/event.dart';
+import 'package:ticketmaster/ui/layouts/app_layout.dart';
 import 'package:ticketmaster/ui/views/home/home_view_model.dart';
 import 'package:ticketmaster/ui/widgets/event_item.dart';
 
@@ -83,13 +85,15 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeViewModel>(builder: (context, vm, child) {
-      return CustomScrollView(
-        controller: _scrollController,
-        slivers: [
-          _buildSearchWidget(vm),
-          _buildEventList(vm),
-        ],
-      );
+      return AppLayout(
+          title: context.tr('home.title'),
+          child: CustomScrollView(
+            controller: _scrollController,
+            slivers: [
+              _buildSearchWidget(vm),
+              _buildEventList(vm),
+            ],
+          ));
     });
   }
 

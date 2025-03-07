@@ -18,7 +18,7 @@ class EventItem extends StatelessWidget {
 
     return InkWell(
       onTap: () {
-        context.go('/events/${event.id}', extra: event);
+        context.push('/events/${event.id}', extra: event);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),

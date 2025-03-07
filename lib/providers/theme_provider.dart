@@ -3,16 +3,21 @@ import 'package:ticketmaster/app/app_theme.dart';
 
 /// Provides theme management for the app, allowing toggling between light and dark themes.
 ///
-/// Notifies listeners whenever the theme mode changes.
+/// By default, the theme is initialized to match the device's current theme.
 class ThemeProvider extends ChangeNotifier {
-  bool _isDarkMode = false;
+  bool _isDarkMode;
 
   /// Returns `true` if dark mode is active.
   bool get isDarkMode => _isDarkMode;
 
-  /// Returns the current [ThemeData] based on the [isDarkMode] flag.
+  /// Returns the current [ThemeData] based on the [_isDarkMode] flag.
   ThemeData get currentTheme =>
       _isDarkMode ? AppTheme().darkTheme : AppTheme().lightTheme;
+
+  /// Initializes the provider with the device's current theme setting.
+  ThemeProvider()
+      : _isDarkMode = WidgetsBinding.instance.window.platformBrightness ==
+            Brightness.dark;
 
   /// Toggles between light and dark themes.
   void toggleTheme() {

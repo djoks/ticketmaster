@@ -71,6 +71,11 @@ class AppTheme {
         side: BorderSide(color: Colors.grey.shade300),
       ),
     ),
+    switchTheme: SwitchThemeData(
+      trackOutlineWidth: WidgetStateProperty.all(0),
+      trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
+    ),
     colorScheme: ColorScheme.light(
       primary: AppColors.primary,
       secondary: AppColors.accent,
@@ -134,7 +139,7 @@ class AppTheme {
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
-        borderSide: BorderSide(color: Colors.grey.shade700),
+        borderSide: BorderSide(color: Colors.grey.shade800),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(15),
@@ -142,13 +147,18 @@ class AppTheme {
       ),
     ),
     cardTheme: CardTheme(
-      color: Colors.grey.shade800,
+      color: Colors.grey.shade900,
       elevation: 0,
       margin: const EdgeInsets.all(8),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15),
-        side: BorderSide(color: Colors.grey.shade700),
+        side: BorderSide(color: Colors.grey.shade800),
       ),
+    ),
+    switchTheme: SwitchThemeData(
+      trackOutlineWidth: WidgetStateProperty.all(0),
+      trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
+      overlayColor: WidgetStateProperty.all(Colors.transparent),
     ),
     colorScheme: ColorScheme.dark(
       primary: AppColors.primary,

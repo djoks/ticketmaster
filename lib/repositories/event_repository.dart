@@ -39,4 +39,22 @@ class EventRepository {
       rethrow;
     }
   }
+
+  /// Fetches the details for a specific event.
+  ///
+  /// [id] is the unique identifier of the event.
+  ///
+  /// Returns a [Future] resolving to an [Event] object.
+  Future<Event> fetchEventDetail(String id) async {
+    try {
+      final response = await _apiService.get(
+        url: 'events/$id',
+      );
+      final data = response.data;
+      return Event.fromJson(data);
+    } catch (e) {
+      log.e(e.toString());
+      rethrow;
+    }
+  }
 }

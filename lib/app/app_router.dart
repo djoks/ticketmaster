@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:ticketmaster/ui/layouts/app_layout.dart';
-import 'package:ticketmaster/ui/views/details_view.dart';
+import 'package:ticketmaster/ui/views/details/details_view.dart';
 import 'package:ticketmaster/ui/views/home/home_view.dart';
 
 /// The router configuration for the Ticketmaster app using GoRouter.
@@ -16,20 +16,13 @@ class AppRouter {
   final GoRouter routes = GoRouter(
     initialLocation: '/',
     routes: [
-      ShellRoute(
-        builder: (context, state, child) {
-          return AppLayout(child: child);
-        },
-        routes: [
-          GoRoute(
-            path: '/',
-            builder: (context, state) => HomeView(),
-          ),
-          GoRoute(
-            path: '/events/:id',
-            builder: (context, state) => DetailsView(),
-          ),
-        ],
+      GoRoute(
+        path: '/',
+        builder: (context, state) => HomeView(),
+      ),
+      GoRoute(
+        path: '/events/:id',
+        builder: (context, state) => DetailsView(),
       ),
     ],
   );
