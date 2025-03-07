@@ -2,12 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
 import 'package:ticketmaster/models/event.dart';
 import 'package:ticketmaster/repositories/event_repository.dart';
 import 'package:ticketmaster/ui/layouts/app_layout.dart';
 import 'package:ticketmaster/ui/widgets/button.dart';
-import 'package:ticketmaster/utils/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:ticketmaster/utils/locator.dart';
 

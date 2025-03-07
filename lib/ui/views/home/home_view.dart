@@ -45,8 +45,8 @@ class _HomeViewState extends State<HomeView> {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: TextField(
         controller: _searchController,
-        decoration: const InputDecoration(
-          hintText: 'Type here to search...',
+        decoration: InputDecoration(
+          hintText: context.tr('details.search_hint'),
           prefixIcon: Icon(Icons.search),
         ),
         onChanged: (value) {

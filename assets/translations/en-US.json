@@ -4,6 +4,7 @@
 		"title": "Home"
 	},
 	"details": {
-		"title": "Event Details"
+		"title": "Event Details",
+		"search_hint": "Type here to search..."
 	}
 }
