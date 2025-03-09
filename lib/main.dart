@@ -1,21 +1,65 @@
+import 'dart:io';
+import 'dart:isolate';
+import 'dart:ui';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ticketmaster/callback_dispatcher.dart';
 import 'package:ticketmaster/services/connectivity_service.dart';
 import 'package:ticketmaster/utils/locator.dart';
 import 'package:ticketmaster/app/app_providers.dart';
 import 'package:ticketmaster/app/app_router.dart';
 import 'package:ticketmaster/app/app_theme.dart';
 import 'package:ticketmaster/providers/theme_provider.dart';
+import 'package:ticketmaster/utils/logger.dart';
+import 'package:workmanager/workmanager.dart';
+
+// Define ReceivePort for background task
+final ReceivePort port = ReceivePort();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-
   await setupLocator();
 
   final connectivityService = locator<ConnectivityService>();
   connectivityService.startPeriodicNetworkChecks();
+
+  // Initialize Workmanager before registering the port
+  Workmanager().initialize(
+    callbackDispatcher,
+    isInDebugMode: true,
+  );
+
+  // Register the port with IsolateNameServer before scheduling tasks
+  IsolateNameServer.registerPortWithName(port.sendPort, 'backgroundPort');
+
+  // Listen for messages from the background task
+  port.listen((message) {
+    log.d('Received message: $message');
+  });
+
+  Workmanager().cancelByUniqueName("uniqueTaskName");
+
+  // Schedule Workmanager tasks after port registration
+  if (Platform.isIOS) {
+    // iOS-specific setup
+    Workmanager().registerOneOffTask(
+      "uniqueTaskName",
+      "apiCallTask",
+      initialDelay: Duration(seconds: 950), // Minimum delay for testing
+      constraints: Constraints(
+        networkType: NetworkType.connected,
+      ),
+    );
+  } else {
+    Workmanager().registerPeriodicTask(
+      "uniqueTaskName",
+      "apiCallTask",
+      frequency: Duration(minutes: 5),
+    );
+  }
 
   runApp(
     MultiProvider(

@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import workmanager
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
@@ -8,6 +9,15 @@ import UIKit
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
+
+    // In AppDelegate.application method
+    // WorkmanagerPlugin.registerBGProcessingTask(withIdentifier: "ticket-master")
+
+    // Register a periodic task in iOS 13+
+    // WorkmanagerPlugin.registerPeriodicTask(withIdentifier: "com.example.ticketmaster.iOSBackgroundAppRefresh", frequency: NSNumber(value: 20 * 60))
+
+    UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }
