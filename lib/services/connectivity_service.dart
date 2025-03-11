@@ -17,7 +17,7 @@ class ConnectivityService {
 
   /// A [ValueNotifier] that holds the current connectivity status.
   /// `true` indicates an active internet connection, while `false` means offline.
-  final ValueNotifier<bool> isOnline = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> isOnline = ValueNotifier<bool>(true);
 
   /// Creates a new instance of [ConnectivityService].
   ///
